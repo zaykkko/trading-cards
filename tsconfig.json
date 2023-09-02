@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"target": "esnext",
 		"module": "commonjs",
-		"baseUrl": "./",
+		"outDir": "./dist",
 		"removeComments": true,
 		"newLine": "crlf",
 		"esModuleInterop": true,

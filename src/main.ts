@@ -385,10 +385,12 @@ class CardFarmer extends EventEmitter {
 
 let user, pass, pin;
 
-if (process.argv.length - 2 - 2) {
-	user = process.argv[0];
-	pass = process.argv[1];
-	pin = process.argv[2];
+if (process.argv.length - 2 >= 2) {
+	const correctProcess = process.argv.slice(2);
+
+	user = correctProcess[0];
+	pass = correctProcess[1];
+	pin = correctProcess[2];
 } else {
 	dotenv.config();
 
