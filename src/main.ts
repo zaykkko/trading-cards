@@ -287,50 +287,7 @@ class CardFarmer extends EventEmitter {
 
 		return gamesWithCards;
 	}
-	/* // IDK TF I DID A CACHING SYSTEM
-	async _saveTradingCards() {
-		const tradingCards = await this.getBadges();
-		const cardsObject = {
-			timestamp: Math.floor(Date.now() / 1000),
-			tradingCards,
-		};
-		fs.writeFileSync(
-			"./cached.cards.json",
-			JSON.stringify(cardsObject),
-			"utf8",
-		);
-		return tradingCards;
-	}
-	async _readTradingCards(recache = false): Promise<GameTradingCards[]> {
-		if (recache) {
-			return await this._saveTradingCards();
-		}
-		try {
-			const { timestamp, tradingCards } = JSON.parse(
-				fs.readFileSync("./cached.cards.json", "utf8"),
-			);
-			if (Math.floor(Date.now() / 1000) - timestamp < 54e2) {
-				return await this._saveTradingCards();
-			}
 
-			return tradingCards;
-		} catch (except) {
-			return await this._saveTradingCards();
-		}
-	}
-	async getUserSelectedGames() {
-		const tradingCards = await this.getBadges();
-		try {
-			const games2Idle = new Set<number>(
-				JSON.parse(fs.readFileSync("./2idle.json", "utf8")).map(Number),
-			);
-			return games2Idle.forEach(())
-			return tradingCards.filter((game) => games2Idle.has(game.appId));
-		} catch (except) {
-			return tradingCards;
-		}
-	}
-	*/
 	private async _idleGames(games?: GameTradingCards[]) {
 		if (games) {
 			await this.setTempProfilePrivacy(true);
